@@ -26,13 +26,15 @@ $(function () {
     }
 
     function doLogin(loginData) {
+        console.log("loginData: "+JSON.stringify(loginData));
         $.ajax({
-            url: "/auth",
+            url: "/auth/login",
             type: "POST",
             data: JSON.stringify(loginData),
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (data, textStatus, jqXHR) {
+                console.log(JSON.stringify(data));
                 setJwtToken(data.token);
                 $login.hide();
                 $notLoggedIn.hide();

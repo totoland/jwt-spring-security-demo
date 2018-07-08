@@ -1,7 +1,7 @@
 # config context path to "/" by setting an empty string
 server:
-  contextPath:
-
+  port:9000
+    
 # JACKSON
 spring:
   jackson:
@@ -27,7 +27,7 @@ jwt:
   expiration: 604800
   route:
     authentication:
-      path: auth
+      path: auth/login
       refresh: refresh
 
 #logging:

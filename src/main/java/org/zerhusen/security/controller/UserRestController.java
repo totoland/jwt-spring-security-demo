@@ -1,5 +1,6 @@
 package org.zerhusen.security.controller;
 
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -26,6 +27,15 @@ public class UserRestController {
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public JwtUser getAuthenticatedUser(HttpServletRequest request) {
         String token = request.getHeader(tokenHeader).substring(7);
+        String username = jwtTokenUtil.getUsernameFromToken(token);
+        JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
+        return user;
+    }
+
+    @RequestMapping(value = "secret/test", method = RequestMethod.GET)
+    public JwtUser checkExpirity(HttpServletRequest request) {
+//        String token = request.getHeader(tokenHeader).substring(7);
+        String token = request.getHeader(tokenHeader);
         String username = jwtTokenUtil.getUsernameFromToken(token);
         JwtUser user = (JwtUser) userDetailsService.loadUserByUsername(username);
         return user;

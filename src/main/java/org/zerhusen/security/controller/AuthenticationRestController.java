@@ -54,7 +54,7 @@ public class AuthenticationRestController {
         final String token = jwtTokenUtil.generateToken(userDetails, device);
 
         // Return the token
-        return ResponseEntity.ok(new JwtAuthenticationResponse(token));
+        return ResponseEntity.ok(new JwtAuthenticationResponse(token,"1",authenticationRequest.getUsername()));
     }
 
     @RequestMapping(value = "${jwt.route.authentication.refresh}", method = RequestMethod.GET)
