@@ -51,6 +51,14 @@
         <findbugs.annotations.version>3.0.1</findbugs.annotations.version>
         <docker-maven-plugin.version>0.4.13</docker-maven-plugin.version>
     </properties>
+    
+    <repositories>
+        <repository>
+            <id>my-repo1</id>
+            <name>your custom repo</name>
+            <url>http://repo.spring.io/plugins-release/</url>
+        </repository>
+    </repositories>
 
     <dependencies>
         <dependency>
@@ -64,6 +72,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mobile</artifactId>
+            <version>2.0.0.M2</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
